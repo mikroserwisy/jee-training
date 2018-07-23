@@ -20,7 +20,7 @@ public class IncrementalAccountNumberGenerator implements AccountNumberGenerator
     // @Lock(LockType.WRITE) by default
     @Override
     public String getNext() {
-        return format(counter++);
+        return format(++counter);
     }
 
     @Lock(LockType.READ)
