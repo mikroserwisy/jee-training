@@ -4,8 +4,11 @@ import lombok.Setter;
 import pl.training.bank.api.account.InsufficientFundsException;
 import pl.training.bank.entity.Account;
 
+import javax.ejb.AsyncResult;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.util.List;
+import java.util.concurrent.Future;
 
 @Setter
 @Stateless
@@ -41,6 +44,17 @@ public class AccountService {
 
     public Account getAccount(String accountNumber) {
         return accountRepository.getByNumber(accountNumber);
+    }
+
+    public Future<Long> getTotalBalance() {
+        try {
+            Thread.sleep(5_000); // only for training purposes
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new AsyncResult<>(accountRepository.getAll().stream()
+                .mapToLong(Account::getBalance)
+                .sum());
     }
 
 }

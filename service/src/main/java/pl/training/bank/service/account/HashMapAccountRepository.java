@@ -6,7 +6,9 @@ import pl.training.bank.entity.Account;
 import javax.ejb.Lock;
 import javax.ejb.LockType;
 import javax.ejb.Singleton;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Singleton
@@ -32,6 +34,11 @@ public class HashMapAccountRepository implements AccountRepository {
             throw new AccountNotFoundException();
         }
         return account;
+    }
+
+    @Override
+    public List<Account> getAll() {
+        return new ArrayList<>(accounts.values());
     }
 
     @Override

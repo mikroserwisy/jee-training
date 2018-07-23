@@ -1,5 +1,6 @@
 package pl.training.bank.service.disposition;
 
+import lombok.Setter;
 import lombok.extern.java.Log;
 import pl.training.bank.api.account.DispositionDto;
 import pl.training.bank.entity.OperationName;
@@ -15,6 +16,7 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 
 @Log
+@Setter
 @MessageDriven(activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
         @ActivationConfigProperty(propertyName = "destination", propertyValue = "BankDS"),
