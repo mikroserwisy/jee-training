@@ -1,8 +1,8 @@
-package pl.training.bank.api.account;
+package pl.training.bank.service.account;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
-@Remote
+@Local
 public interface AccountNumberGenerator {
 
     String getNext();

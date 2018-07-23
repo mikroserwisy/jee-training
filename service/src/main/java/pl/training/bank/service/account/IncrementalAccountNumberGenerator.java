@@ -1,7 +1,6 @@
 package pl.training.bank.service.account;
 
 import lombok.extern.java.Log;
-import pl.training.bank.api.account.AccountNumberGenerator;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
