@@ -7,7 +7,6 @@ import pl.training.bank.entity.Account;
 import javax.ejb.AsyncResult;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import java.util.List;
 import java.util.concurrent.Future;
 
 @Setter
@@ -16,7 +15,7 @@ public class AccountService {
 
     @EJB
     private AccountNumberGenerator accountNumberGenerator;
-    @EJB
+    @EJB(beanName = "HashMapAccountRepository")
     private AccountRepository accountRepository;
 
     public Account createAccount() {
