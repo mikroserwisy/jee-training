@@ -30,7 +30,7 @@ public class EjbClient {
         DispositionsCart dispositionsCart = proxyFactory.createProxy(DISPOSITIONS_CART_JNDI_NAME);
 
         AccountDto accountDto = bank.createAccount();
-        DispositionDto dispositionDto = new DispositionDto(accountDto.getNumber(), 1_000, "DEPOSIT");
+        DispositionDto dispositionDto = new DispositionDto(accountDto.getNumber(), 1_001, "DEPOSIT");
 
         try (JMSContext jmsContext = connectionFactory.createContext()) {
             jmsContext.createProducer().send(dispositionsQueue, dispositionDto);

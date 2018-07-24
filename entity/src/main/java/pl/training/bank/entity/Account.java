@@ -8,7 +8,10 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@NamedQuery(name = Account.GET_BY_NUMBER, query = "select a from Account a where a.number = :number")
+@NamedQueries({
+        @NamedQuery(name = Account.GET_ALL, query = "select a from Account a"),
+        @NamedQuery(name = Account.GET_BY_NUMBER, query = "select a from Account a where a.number = :number")
+})
 @Table(name = "accounts")
 @Entity
 @RequiredArgsConstructor
@@ -16,6 +19,7 @@ import java.io.Serializable;
 @Data
 public class Account implements Serializable {
 
+    public static final String GET_ALL = "getAccounts";
     public static final String GET_BY_NUMBER = "getAccountByNumber";
 
     @GeneratedValue

@@ -39,7 +39,8 @@ public class JpaAccountRepository implements AccountRepository {
 
     @Override
     public List<Account> getAll() {
-        return null;
+        return entityManager.createNamedQuery(Account.GET_ALL, Account.class)
+                .getResultList();
     }
 
     @Override
