@@ -15,7 +15,7 @@ public class AccountService {
 
     @EJB
     private AccountNumberGenerator accountNumberGenerator;
-    @EJB(beanName = "HashMapAccountRepository")
+    @EJB(beanName = "JpaAccountRepository")
     private AccountRepository accountRepository;
 
     public Account createAccount() {

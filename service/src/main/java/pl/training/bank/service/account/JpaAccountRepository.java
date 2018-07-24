@@ -14,7 +14,7 @@ import java.util.List;
 @Stateless
 public class JpaAccountRepository implements AccountRepository {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "bank")
     private EntityManager entityManager;
 
     @Override
