@@ -11,6 +11,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <packaging>war</packaging>
+
     <groupId>pl.training.bank</groupId>
     <artifactId>service</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -20,8 +22,9 @@
     </properties>
 
     <build>
+        <finalName>${artifact.name}</finalName>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <descriptorRefs>
@@ -39,7 +42,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
@@ -53,7 +56,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <filename>${artifact.name}.jar</filename>
+                    <filename>${artifact.name}.war</filename>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,12 +1,13 @@
-package pl.training.bank.service.rest.controller;
+package pl.training.bank.rest.controller;
 
-import com.sun.jndi.toolkit.url.Uri;
+import lombok.Setter;
 import pl.training.bank.api.account.AccountDto;
 import pl.training.bank.entity.Account;
 import pl.training.bank.service.Mapper;
 import pl.training.bank.service.account.AccountService;
 
 import javax.ejb.EJB;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -16,6 +17,7 @@ import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 
+@Setter
 @Path("accounts")
 public class AccountController {
 
@@ -35,6 +37,7 @@ public class AccountController {
                 .build();
     }
 
+    @GET
     @Path("{id:\\d+}")
     public AccountDto getById(@PathParam("id") Long id) {
         Account account = accountService.getAccount(id);
