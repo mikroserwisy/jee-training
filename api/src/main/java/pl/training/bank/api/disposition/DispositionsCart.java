@@ -1,6 +1,6 @@
-package pl.training.bank.api;
+package pl.training.bank.api.disposition;
 
-import pl.training.bank.api.account.DispositionDto;
+import pl.training.bank.api.disposition.DispositionDto;
 
 import javax.ejb.Remote;
 

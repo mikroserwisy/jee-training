@@ -19,6 +19,7 @@
 
     <properties>
         <artifact.name>bank</artifact.name>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <build>

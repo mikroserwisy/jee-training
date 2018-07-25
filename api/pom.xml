@@ -21,6 +21,12 @@
             <artifactId>entity</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.10.Final</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

@@ -2,8 +2,8 @@ package pl.training.bank.service.disposition;
 
 import lombok.Setter;
 import lombok.extern.java.Log;
-import pl.training.bank.api.DispositionsCart;
-import pl.training.bank.api.account.DispositionDto;
+import pl.training.bank.api.disposition.DispositionsCart;
+import pl.training.bank.api.disposition.DispositionDto;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
