@@ -61,4 +61,8 @@ public class AccountService {
                 .sum());
     }
 
+    public Account getAccount(Long id) {
+        return accountRepository.getById(id);
+    }
+
 }

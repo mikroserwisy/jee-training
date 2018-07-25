@@ -1,6 +1,5 @@
 package pl.training.bank.service;
 
-import lombok.Setter;
 import lombok.extern.java.Log;
 import pl.training.bank.api.Bank;
 import pl.training.bank.api.account.AccountDto;
@@ -11,9 +10,11 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 
+@WebService(portName = "Bank", serviceName = "BankService", targetNamespace = "http://api.bank.training.pl/")
 @Log
-@Setter
 @Stateless
 public class BankFacade implements Bank {
 
@@ -34,14 +35,26 @@ public class BankFacade implements Bank {
         return mapper.map(account, AccountDto.class);
     }
 
+    @WebMethod(exclude = true)
     @PostConstruct
     public void init() {
         log.info("BankFacade is ready...");
     }
 
+    @WebMethod(exclude = true)
     @PreDestroy
     public void destroy() {
         log.info("BankFacade is going down...");
+    }
+
+    @WebMethod(exclude = true)
+    public void setAccountService(AccountService accountService) {
+        this.accountService = accountService;
+    }
+
+    @WebMethod(exclude = true)
+    public void setMapper(Mapper mapper) {
+        this.mapper = mapper;
     }
 
 }
