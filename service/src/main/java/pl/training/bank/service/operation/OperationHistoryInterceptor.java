@@ -3,7 +3,6 @@ package pl.training.bank.service.operation;
 import pl.training.bank.entity.Account;
 import pl.training.bank.entity.Operation;
 import pl.training.bank.entity.OperationName;
-import pl.training.bank.service.account.AccountRepository;
 import pl.training.bank.service.account.AccountService;
 
 import javax.ejb.EJB;
