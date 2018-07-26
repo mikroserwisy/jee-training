@@ -18,6 +18,7 @@
 	</properties>
 
 	<modules>
+		<module>cdi</module>
 		<module>entity</module>
         <module>service</module>
 		<module>api</module>
