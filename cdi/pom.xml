@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>pl.training.bank</groupId>
-        <artifactId>core</artifactId>
+        <groupId>pl.training</groupId>
+        <artifactId>bank</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <ejbModule.name>bank</ejbModule.name>
+        <artifact.name>cdi</artifact.name>
     </properties>
 
     <build>
@@ -23,7 +23,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <finalName>${ejbModule.name}</finalName>
+                    <finalName>${artifact.name}</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
@@ -49,7 +49,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <filename>${ejbModule.name}.jar</filename>
+                    <filename>${artifact.name}.jar</filename>
                 </configuration>
             </plugin>
         </plugins>
