@@ -9,8 +9,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pl.training.bank.account.AccountNotFoundException;
 import pl.training.bank.api.BankException;
+import pl.training.bank.api.account.AccountNotFoundException;
 import pl.training.bank.entity.Account;
 
 import javax.ejb.EJB;
@@ -24,27 +24,27 @@ public class JpaAccountsRepositoryServiceTest {
     private static final String FAKE_ACCOUNT_NUMBER = "00000000000000000000000002";
 
     @EJB
-    private AccountsRepository accountsRepository;
+    private AccountRepository accountRepository;
 
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addClass(Account.class)
                 .addClasses(BankException.class, AccountNotFoundException.class)
-                .addClasses(AccountsRepository.class, JpaAccountsRepositoryService.class)
+                .addClasses(AccountRepository.class, JpaAccountRepository.class)
                 .addAsResource("META-INF/persistence.xml");
     }
 
     @Test(expected = AccountNotFoundException.class)
     public void shouldThrowExceptionWhenAccountDoesNotExist() {
-        accountsRepository.getByNumber(FAKE_ACCOUNT_NUMBER);
+        accountRepository.getByNumber(FAKE_ACCOUNT_NUMBER);
     }
 
     @Cleanup(strategy = CleanupStrategy.USED_ROWS_ONLY, phase = TestExecutionPhase.AFTER)
     @Test
     public void shouldGetAccountByNumber() {
-        accountsRepository.save(new Account(ACCOUNT_NUMBER));
-        assertNotNull(accountsRepository.getByNumber(ACCOUNT_NUMBER));
+        accountRepository.save(new Account(ACCOUNT_NUMBER));
+        assertNotNull(accountRepository.getByNumber(ACCOUNT_NUMBER));
     }
 
 

@@ -23,7 +23,7 @@ public class FakeAccountNumberGeneratorTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addClass(AccountNumberGenerator.class)
-                .addClass(FakeAccountNumberGenerator.class);
+                .addClass(IncrementalAccountNumberGenerator.class);
     }
 
     @Test
