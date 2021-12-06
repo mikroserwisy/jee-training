@@ -1,0 +1,32 @@
+POST http://localhost:8080/bank/api/v1/accounts
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET http://localhost:8080/bank/api/v1/accounts/00000000000000000000000001
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET http://localhost:8080/bank/api/v1/accounts/00000000000000000000000001
+Content-Type: application/json
+Accept: application/xml
+
+###
+
+POST http://localhost:8080/bank/api/v1/dispositions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "accountNumber": "00000000000000000000000001",
+  "funds": 200,
+  "operationName": "DEPOSIT"
+}
+
+###
+
+GET http://localhost:8080/bank/BankService/BankFacade?wsdl
+

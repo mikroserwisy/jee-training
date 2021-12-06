@@ -3,6 +3,7 @@ package pl.training.bank.client;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import pl.training.bank.api.mapper.BinaryMapper;
 import pl.training.bank.client.soap.AccountDto;
 
@@ -12,7 +13,7 @@ import javax.ws.rs.core.Response;
 public class RestClient {
 
     public static void main(String[] args) {
-        ResteasyClient client = new ResteasyClientBuilder()
+        ResteasyClient client = new ResteasyClientBuilderImpl()
                 .register(BinaryMapper.class)
                 .build();
         ResteasyWebTarget accounts = client.target("http://localhost:8080/bank/api/v1/accounts");

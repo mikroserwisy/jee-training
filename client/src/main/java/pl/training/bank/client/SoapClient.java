@@ -3,6 +3,7 @@ package pl.training.bank.client;
 import pl.training.bank.api.Bank;
 import pl.training.bank.api.account.AccountDto;
 import pl.training.bank.client.soap.BankService;
+import pl.training.bank.client.soap.JaxWsHandlerResolver;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
@@ -16,6 +17,7 @@ public class SoapClient {
         QName serviceName = new QName("http://api.bank.training.pl/", "BankService");
         QName portName = new QName("http://api.bank.training.pl/", "Bank");
         Service proxyFactory = Service.create(wsdlLocation, serviceName);
+        proxyFactory.setHandlerResolver((new JaxWsHandlerResolver()));
         Bank bank = proxyFactory.getPort(portName, Bank.class);
 
         AccountDto account = bank.createAccount();
